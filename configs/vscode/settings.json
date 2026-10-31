@@ -1,0 +1,24 @@
+{
+  "telemetry.telemetryLevel": "off",
+  "update.mode": "none",
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  "workbench.startupEditor": "none",
+  "workbench.list.smoothScrolling": false,
+  "editor.fontSize": 15,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": false,
+  "editor.cursorSmoothCaretAnimation": "off",
+  "terminal.integrated.smoothScrolling": false,
+  "terminal.integrated.gpuAcceleration": "off",
+  "files.autoSave": "afterDelay",
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true
+  },
+  "git.autofetch": false,
+  "emmet.includeLanguages": { "javascript": "javascriptreact" }
+}

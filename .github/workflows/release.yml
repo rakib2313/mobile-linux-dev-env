@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release archives
+        run: |
+          NAME="mobile-linux-dev-env-${GITHUB_REF_NAME}"
+          mkdir -p dist
+          git archive --format=tar.gz --prefix="${NAME}/" -o "dist/${NAME}.tar.gz" HEAD
+          git archive --format=zip --prefix="${NAME}/" -o "dist/${NAME}.zip" HEAD
+          (cd dist && sha256sum -- * > SHA256SUMS.txt)
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true

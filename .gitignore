@@ -1,0 +1,46 @@
+# --- Secrets & credentials (never commit) ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+ai.env
+.vncpw
+passwd
+config.yaml
+secrets/
+credentials*
+
+# --- Logs, caches, runtime state ---
+*.log
+logs/
+.cache/
+.mld/
+.mld-src/
+run/
+handoff/
+*.pid
+*.tmp
+*.swp
+*~
+
+# --- Build artifacts ---
+dist/
+build/
+*.zip
+*.tar.gz
+
+# --- Language / tool noise ---
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

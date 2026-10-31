@@ -1,0 +1,36 @@
+name: ShellCheck
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Syntax check
+        run: |
+          find scripts -name '*.sh' -print0 | xargs -0 -n1 bash -n
+          sh -n configs/vnc/xstartup
+
+      - name: ShellCheck
+        run: |
+          find scripts -name '*.sh' -print0 | xargs -0 shellcheck -x -S warning
+          shellcheck -S warning configs/vnc/xstartup
+
+      - name: Scan for hardcoded secrets
+        run: |
+          if grep -RInE '(sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{30,}|AKIA[0-9A-Z]{16})' \
+               --exclude-dir=.git .; then
+            echo "Possible secret found - remove it and rotate the credential." >&2
+            exit 1
+          fi

@@ -1,0 +1,10 @@
+# Open VSX extension ids installed into code-server (failures are non-fatal).
+esbenp.prettier-vscode
+dbaeumer.vscode-eslint
+bradlc.vscode-tailwindcss
+formulahendry.auto-rename-tag
+ritwickdey.liveserver
+christian-kohler.path-intellisense
+ecmel.vscode-html-css
+ms-python.python
+bmewburn.vscode-intelephense-client

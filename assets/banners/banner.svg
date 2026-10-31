@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Mobile Linux Dev Env">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1e2e"/>
+      <stop offset="1" stop-color="#313244"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" fill="url(#g)"/>
+  <rect x="80" y="70" width="110" height="160" rx="18" fill="none" stroke="#89b4fa" stroke-width="8"/>
+  <text x="135" y="168" font-family="monospace" font-size="42" fill="#a6e3a1" text-anchor="middle">&gt;_</text>
+  <text x="240" y="150" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="#cdd6f4">Mobile Linux Dev Env</text>
+  <text x="242" y="205" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#a6adc8">Termux + PRoot Debian + XFCE4 + VNC + VS Code</text>
+</svg>

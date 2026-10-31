@@ -1,0 +1,33 @@
+#!/bin/sh
+# =============================================================================
+# xstartup - lightweight XFCE4 session for TigerVNC (installed to ~/.vnc/xstartup)
+# =============================================================================
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+
+export XDG_SESSION_TYPE=x11
+export XDG_CURRENT_DESKTOP=XFCE
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp/runtime-$(id -u)}"
+mkdir -p "$XDG_RUNTIME_DIR"
+chmod 700 "$XDG_RUNTIME_DIR"
+export LANG="${LANG:-en_US.UTF-8}"
+
+# Software rendering only (no GPU in PRoot) - keep it cheap.
+export LIBGL_ALWAYS_SOFTWARE=1
+export GALLIUM_DRIVER=llvmpipe
+export GDK_BACKEND=x11
+export GSK_RENDERER=cairo
+export NO_AT_BRIDGE=1
+
+# PRoot has no user namespaces/seccomp: Firefox's own sandbox cannot start.
+export MOZ_FAKE_NO_SANDBOX=1
+export MOZ_DISABLE_CONTENT_SANDBOX=1
+export MOZ_DISABLE_RDD_SANDBOX=1
+export MOZ_ACCELERATED=0
+
+if [ -r "$HOME/.Xresources" ]; then
+  xrdb "$HOME/.Xresources"
+fi
+xsetroot -solid '#1e1e2e' 2>/dev/null || true
+
+exec dbus-launch --exit-with-session startxfce4

@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.sh text eol=lf
+configs/vnc/xstartup text eol=lf
+*.png binary
