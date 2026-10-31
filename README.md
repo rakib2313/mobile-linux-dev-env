@@ -52,14 +52,14 @@ PHP and Git**, tuned to run on **4 GB / Unisoc-class devices** and to scale up o
 **1. Install (one line, inside Termux):**
 
 ```bash
-pkg install -y curl && curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/mobile-linux-dev-env/main/scripts/install.sh | bash
+pkg install -y curl && curl -fsSL https://raw.githubusercontent.com/rakib2313/mobile-linux-dev-env/main/scripts/install.sh | bash
 ```
 
 Prefer to read the code first? Clone and run it:
 
 ```bash
 pkg install -y git
-git clone https://github.com/YOUR_GITHUB_USERNAME/mobile-linux-dev-env.git
+git clone https://github.com/rakib2313/mobile-linux-dev-env.git
 cd mobile-linux-dev-env && bash scripts/install.sh
 ```
 
